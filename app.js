@@ -7,12 +7,19 @@ const dark_mode_btn = document.querySelector('.mode-btn');
 const result_container = document.querySelector('.result-container');
 const form = document.getElementById('input-form');
 
+
+
 /*===== EVENT LISTENERS =====*/
 // event listner for form submission
 form.addEventListener('submit',submitPhrase);
 
 // event listner for reset button
 reset_btn.addEventListener('click',resetEverything)
+
+// event listner that toggles dark/light mode 
+dark_mode_btn.addEventListener('click',toggleDarkMode)
+
+
 
 
 /*===== FUNCTIONS =====*/
@@ -92,24 +99,44 @@ function resetEverything(){
     //remove the reset button after a 2 second delay 
     setTimeout(()=>{
         reset_btn.classList.remove("show");
-    },2000)
+    },1000)
 
 }
 
 
 // DISPLAY ERROR MESSSAGE FUNC
+// function is used to display error messages
 function showErrorMsg(color,text){
-    
+    // the DOM element for the error message
     const err_msg = document.querySelector('.err-msg');
-
+    //adds the show class to the element 
     err_msg.classList.add('show');
+    // dynamically updates the error message and error text color base arguments passed in
     err_msg.style.color = `${color}`;
     err_msg.textContent = `${text}`;
 
+    // removes the error from display after 3 seconds
     setTimeout(()=>{
 
         err_msg.classList.remove('show');  
-    },3000)
+    },2000)
 
 
+}
+
+
+// TOGGLE DARK MODE FUNC
+/**The `toggleDarkMode` function toggles a dark mode theme on and off for the webpage
+   by adding or removing specific classes from elements like the body, header, card,
+    and reset button.*/
+function toggleDarkMode(){
+    
+    // selects DOM elements and toggles the dark mode classes on them based on user interaction with toggle btn
+    document.querySelector("body").classList.toggle("dark-bg-img");
+    document.querySelector('header').classList.toggle("dark-header");
+    document.querySelector('.card').classList.toggle("dark-card");
+    // does the same thing for the reset btn but with a delay 1 second delay
+    setTimeout(()=>{
+        document.querySelector('.reset-btn').classList.toggle("dark-reset-btn")
+    },1000)
 }

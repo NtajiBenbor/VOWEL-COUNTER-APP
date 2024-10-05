@@ -6,8 +6,8 @@
     --text-color:#000;
     /* dark mode */
     --dark-mode-primary-color:#000;
-    --dark-mode-secondary-color:#0099ff;
-    --dark-mode-text-color:#fff;
+    --dark-mode-card-color:rgb(60, 60, 60,0.9);
+    --dark-mode-secondary-color:#fff;
 }
 
 /* ========CSS RESET=========== */
@@ -71,23 +71,27 @@
     font-family: "Kanit", sans-serif;
   }
 
-  p{
+  .card, p{
     font-family: "Nunito", sans-serif;
     font-weight: 600;
   }
 
   .card-title{
-    border-bottom: 4px solid var(--text-color);
+    font-weight: 800;
   }
+
+
+
+
 
 /* ======== LAYOUT =========== */
 body{
-    background-image: url("/assets/img/wave-bg.svg");
+    background-image: url("/assets/img/wave-bg-light.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
+    /* background-attachment: fixed; */
     background-color:var(--primary-color);
+    transition: all 300ms linear;
  
   }
 
@@ -101,6 +105,7 @@ body{
     box-shadow: 2px 11px 3px -8px rgba(0,0,0,0.3);
     -webkit-box-shadow: 2px 11px 3px -8px rgba(0,0,0,0.3);
     -moz-box-shadow: 2px 11px 3px -8px rgba(0,0,0,0.3);
+    transition: all 300ms linear;
   }
 
 .nav-center{
@@ -121,17 +126,21 @@ body{
     margin-top: 8rem;
     height: auto;
     background-color: var(--primary-color);
+    transition: all 300ms linear;
+
 }
 
 .result-container {
     visibility: hidden;
     color: green;
+    transition: all 200ms linear;
 }
 
 .reset-btn{
     visibility: hidden;
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--primary-color)!important;
+    transition: all 300ms linear;
 }
 
 .err-msg{
@@ -139,11 +148,34 @@ body{
     font-size: 15px; 
     width: fit-content;
     margin: 0 auto;
+    transition: all 300ms linear;
 }
 
 /*******JS styles*******/
 .show {
     visibility: visible;
+}
+
+
+/*****Dark theme JS Classes *****/
+
+.dark-bg-img{
+    background-image: url("/assets/img/wave-bg-dark.svg");
+    background-color: var(--dark-mode-primary-color);
+}
+
+.dark-header{
+    background-color: var(--dark-mode-primary-color);
+}
+
+.dark-card{
+    background-color: var(--dark-mode-card-color)!important;
+    color: var(--dark-mode-secondary-color)!important;
+}
+
+.dark-reset-btn{
+    background-color: var(--dark-mode-secondary-color)!important;
+    color: var(--dark-mode-primary-color)!important;
 }
 
 
