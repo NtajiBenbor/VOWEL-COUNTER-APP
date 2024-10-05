@@ -1,6 +1,14 @@
 /* ========CSS VARIABLES=========== */
-
-
+:root{
+    /* light mode */
+    --primary-color:#fff;
+    --secondary-color:#0099ff;
+    --text-color:#000;
+    /* dark mode */
+    --dark-mode-primary-color:#000;
+    --dark-mode-secondary-color:#0099ff;
+    --dark-mode-text-color:#fff;
+}
 
 /* ========CSS RESET=========== */
 /*
@@ -26,6 +34,7 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: "Nunito", sans-serif;
+    color: var(--text-color);
   }
   
   /*
@@ -62,22 +71,167 @@
     font-family: "Kanit", sans-serif;
   }
 
+  p{
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+  }
 
+  .card-title{
+    border-bottom: 4px solid var(--text-color);
+  }
 
 /* ======== LAYOUT =========== */
 body{
     background-image: url("/assets/img/wave-bg.svg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    background-color:var(--primary-color);
+ 
   }
 
+ header{
+    background-color: var(--primary-color);
+    padding-top: .3rem;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 11px 3px -8px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 2px 11px 3px -8px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 11px 3px -8px rgba(0,0,0,0.3);
+  }
 
+.nav-center{
+    margin-left: auto;
+    width: fit-content;
+}
 
-
-  .page-center{
-    background-color: transparent;
+.page-center{
     width: 100%;
     height: auto;
     display: grid;
     place-items: center;
+
+}
+
+
+.card{
+    margin-top: 8rem;
+    height: auto;
+    background-color: var(--primary-color);
+}
+
+.result{
+    visibility: hidden;
+}
+
+
+/*******submit button styles*******/
+/* From Uiverse.io by catraco */ 
+.btn-class-name {
+    --primary: 255, 90, 120;
+    --secondary: 150, 50, 60;
+    width: 60px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    outline: 10px solid rgb(var(--primary), .5);
+    border-radius: 100%;
+    position: relative;
+    transition: .3s;
+  }
+  
+  .btn-class-name .back {
+    background: rgb(var(--secondary));
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .btn-class-name .front {
+    background: linear-gradient(0deg, rgba(var(--primary), .6) 20%, rgba(var(--primary)) 50%);
+    box-shadow: 0 .5em 1em -0.2em rgba(var(--secondary), .5);
+    border-radius: 100%;
+    position: absolute;
+    border: 1px solid rgb(var(--secondary));
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: inherit;
+    transform: translateY(-15%);
+    transition: .15s;
+    color: rgb(var(--secondary));
+  }
+  
+  .btn-class-name:active .front {
+    transform: translateY(0%);
+    box-shadow: 0 0;
+  }
+
+/*******Dark mode/light mode button styles*******/
+/* From Uiverse.io by cuzpq */ 
+.theme-checkbox {
+    --toggle-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 6.25em;
+    height: 3.125em;
+    background: -webkit-gradient(linear, left top, right top, color-stop(50%, #efefef), color-stop(50%, #2a2a2a)) no-repeat;
+    background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background-size: 205%;
+    background-position: 0;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 99em;
+    position: relative;
+    cursor: pointer;
+    font-size: var(--toggle-size);
+  }
+  
+  .theme-checkbox::before {
+    content: "";
+    width: 2.25em;
+    height: 2.25em;
+    position: absolute;
+    top: 0.438em;
+    left: 0.438em;
+    background: -webkit-gradient(linear, left top, right top, color-stop(50%, #efefef), color-stop(50%, #2a2a2a)) no-repeat;
+    background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background-size: 205%;
+    background-position: 100%;
+    border-radius: 50%;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  .theme-checkbox:checked::before {
+    left: calc(100% - 2.25em - 0.438em);
+    background-position: 0;
+  }
+  
+  .theme-checkbox:checked {
+    background-position: 100%;
+  }
+
+  .mode-btn{
+    transform: scale(0.8);
   }

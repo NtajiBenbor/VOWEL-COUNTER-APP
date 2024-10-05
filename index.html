@@ -24,12 +24,50 @@
      <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-     <div class="container">
+    <!-- header section -->
+     <header>
+        <nav class="container">
+            <!-- dark mode toggle button -->
+            <div class="nav-center my-0 py-0">
+                 <!-- From Uiverse.io by cuzpq   -->
+                <input type="checkbox" class="mode-btn theme-checkbox">
+            </div>
+        </nav>
+     </header>
+
+     <main class="container">
         <!-- page center -->
         <section class="page-center">
+            <!-- card element -->
+            <div class="card py-3 w-md-50 text-center">
+                <!-- form element -->
+                <form action="">
+                    <div class="card-body">
+                      <h5 class="card-title display-6 ">Vowel Counter App</h5>
+                      <div class="mb-0 row">
+                        <label for="phrase-input" class="form-label col-12">Enter phrase below</label>
+                        <div class=" col-12 col-md-10 mx-auto">
+                            <input type="text" class="form-control" id="phrase-input" name="phrase-input"></div>
+                      </div>
+                    </div>
+                      <div>
+                          <p class="card-text my-1">Hit the button below to generate your results!</p>
+                          <!-- form submit btn -->
+                          <button type="button" class=" mt-4 btn-class-name">
+                            <span class="back"></span>
+                            <span class="front"></span>
+                          </button>
+                      </div>
+                </form><!-- form element end-->
+                    <!-- results display -->
+                    <div class="my-0">
+                        <h1 class="result mx-auto my-0 py-0 display-2">0</h1>
+                    </div>
+            </div><!-- card element end--> 
+         </section> 
+    </main><!-- page center end -->
 
-        </section>
-     </div>
+ 
 
 
 
