@@ -15,9 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- font awesome icons -->
-    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet" />
-    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet" />
-    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet" />
+    <link href="/assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/assets/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/assets/fontawesome/css/solid.css" rel="stylesheet" />
     <!-- bootstrap stylesheet -->
     <link rel="stylesheet" href="/assets/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <!-- custom CSS style sheet -->
@@ -41,27 +41,36 @@
             <!-- card element -->
             <div class="card py-3 w-md-50 text-center">
                 <!-- form element -->
-                <form action="">
+                <form action="" id="input-form">
                     <div class="card-body">
                       <h5 class="card-title display-6 ">Vowel Counter App</h5>
-                      <div class="mb-0 row">
+                      <div class="mb-0 py-0 row">
                         <label for="phrase-input" class="form-label col-12">Enter phrase below</label>
-                        <div class=" col-12 col-md-10 mx-auto">
+                        <div class=" col-12 col-md-10  mx-auto">
                             <input type="text" class="form-control" id="phrase-input" name="phrase-input"></div>
                       </div>
+
+                      <!-- error message display -->
+                      <div class="mb-0 t py-0 mt-1 w-50 mx-auto">
+                        <p class="err-msg mb-0 py-0 px-0"></p>
+                    </div>
+
                     </div>
                       <div>
                           <p class="card-text my-1">Hit the button below to generate your results!</p>
                           <!-- form submit btn -->
-                          <button type="button" class=" mt-4 btn-class-name">
+                          <button type="submit" class="result-btn mt-4 btn-class-name">
                             <span class="back"></span>
                             <span class="front"></span>
-                          </button>
+                          </button>   
                       </div>
                 </form><!-- form element end-->
                     <!-- results display -->
-                    <div class="my-0">
+                    <div class="my-0 result-container">
                         <h1 class="result mx-auto my-0 py-0 display-2">0</h1>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-lg btn-info reset-btn">Reset</button>
                     </div>
             </div><!-- card element end--> 
          </section> 

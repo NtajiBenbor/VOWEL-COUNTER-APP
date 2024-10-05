@@ -123,8 +123,27 @@ body{
     background-color: var(--primary-color);
 }
 
-.result{
+.result-container {
     visibility: hidden;
+    color: green;
+}
+
+.reset-btn{
+    visibility: hidden;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.err-msg{
+    visibility: hidden; 
+    font-size: 15px; 
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/*******JS styles*******/
+.show {
+    visibility: visible;
 }
 
 
