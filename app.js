@@ -1,23 +1,23 @@
 /*===== GLOBAL DOM VARIABLES =====*/
-const phrase_input = document.getElementById('phrase-input');
-const get_results_btn = document.querySelector('.result-btn');
-const reset_btn = document.querySelector('.reset-btn');
-const result_display = document.querySelector('.result');
-const dark_mode_btn = document.querySelector('.mode-btn');
-const result_container = document.querySelector('.result-container');
-const form = document.getElementById('input-form');
+const phrase_input = document.getElementById("phrase-input");
+const get_results_btn = document.querySelector(".result-btn");
+const reset_btn = document.querySelector(".reset-btn");
+const result_display = document.querySelector(".result");
+const dark_mode_btn = document.querySelector(".mode-btn");
+const result_container = document.querySelector(".result-container");
+const form = document.getElementById("input-form");
 
 
 
 /*===== EVENT LISTENERS =====*/
 // event listner for form submission
-form.addEventListener('submit',submitPhrase);
+form.addEventListener("submit",submitPhrase);
 
 // event listner for reset button
-reset_btn.addEventListener('click',resetEverything)
+reset_btn.addEventListener("click",resetEverything)
 
 // event listner that toggles dark/light mode 
-dark_mode_btn.addEventListener('click',toggleDarkMode)
+dark_mode_btn.addEventListener("click",toggleDarkMode)
 
 
 
@@ -58,14 +58,16 @@ function getVowels(text){
     /* loop over the created array using the filter method to check againts the
      text implemented if the array element passes the test the counter is 
      incremented by one*/ 
-    text_arry.filter(item=>{
-        if(item === "a" || item === "e" || item === "i" || item === "o" ||  item === "u"){
-        //   case for lowercase letter 
-            counter ++
-        }else if(item === "U" || item === "E" || item === "I" || item === "O" ||  item === "U"){
-        // case for upperrcase letter
-            counter ++
-        }
+        text_arry.filter(item=>{
+            if(item === "a" || item === "e" || item === "i" || item === "o" ||  item === "u"){
+            //   case for lowercase letter 
+                counter ++
+            }else if(item === "a".toUpperCase() || item === "e".toUpperCase() || item === "e".toUpperCase() || item === "o".toUpperCase() ||  item === "u".toUpperCase()){
+                // case for upperrcase letter
+                    counter ++
+                }
+
+
     })
     //    return the value of the counter
         return counter
@@ -108,9 +110,9 @@ function resetEverything(){
 // function is used to display error messages
 function showErrorMsg(color,text){
     // the DOM element for the error message
-    const err_msg = document.querySelector('.err-msg');
+    const err_msg = document.querySelector(".err-msg");
     //adds the show class to the element 
-    err_msg.classList.add('show');
+    err_msg.classList.add("show");
     // dynamically updates the error message and error text color base arguments passed in
     err_msg.style.color = `${color}`;
     err_msg.textContent = `${text}`;
@@ -118,7 +120,7 @@ function showErrorMsg(color,text){
     // removes the error from display after 3 seconds
     setTimeout(()=>{
 
-        err_msg.classList.remove('show');  
+        err_msg.classList.remove("show");  
     },2000)
 
 
@@ -133,10 +135,10 @@ function toggleDarkMode(){
     
     // selects DOM elements and toggles the dark mode classes on them based on user interaction with toggle btn
     document.querySelector("body").classList.toggle("dark-bg-img");
-    document.querySelector('header').classList.toggle("dark-header");
-    document.querySelector('.card').classList.toggle("dark-card");
+    document.querySelector("header").classList.toggle("dark-header");
+    document.querySelector(".card").classList.toggle("dark-card");
     // does the same thing for the reset btn but with a delay 1 second delay
     setTimeout(()=>{
-        document.querySelector('.reset-btn').classList.toggle("dark-reset-btn")
+        document.querySelector(".reset-btn").classList.toggle("dark-reset-btn")
     },1000)
 }
