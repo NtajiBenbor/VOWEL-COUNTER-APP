@@ -276,28 +276,37 @@ body{
 }
 
 /* toggles visibility on reset btn, results component */
-.show {
+.show{
     visibility: visible;
+}
+
+.show{
+  visibility: visible;
 }
 
 
 /*****Dark theme JS Classes *****/
 /* dark mode style for background imag on the body element */
-.dark-bg-img{
-    background-image: url("/assets/img/wave-bg-dark.svg");
+.dark-mode{
+  background-color: var(--dark-mode-primary-color);
+  background-image: url("/assets/img/wave-bg-dark.svg");
+  color: var(--dark-mode-secondary-color)!important;
+}
+
+.dark-mode body{
     background-color: var(--dark-mode-primary-color);
 }
 /* dark mode style for header element */
-.dark-header{
+.dark-mode header{
     background-color: var(--dark-mode-primary-color);
 }
 /* dark mode style for card element*/
-.dark-card{
+.dark-mode .card{
     background-color: var(--dark-mode-card-color)!important;
     color: var(--dark-mode-secondary-color)!important;
 }
 /* dark mode style for reset btn */
-.dark-reset-btn{
+.dark-mode .reset-btn{
     background-color: var(--dark-mode-secondary-color)!important;
     color: var(--dark-mode-primary-color)!important;
 }

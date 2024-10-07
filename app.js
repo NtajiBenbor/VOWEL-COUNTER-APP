@@ -1,25 +1,16 @@
 /*===== GLOBAL DOM VARIABLES =====*/
-const phrase_input = document.getElementById("phrase-input");
-const get_results_btn = document.querySelector(".result-btn");
 const reset_btn = document.querySelector(".reset-btn");
-const result_display = document.querySelector(".result");
 const dark_mode_btn = document.querySelector(".mode-btn");
-const result_container = document.querySelector(".result-container");
 const form = document.getElementById("input-form");
-const body = document.querySelector("body");
-const header = document.querySelector("header");
-const card = document.querySelector(".card");
+
+
     
 
 
 /*===== OTHER GLOBAL VARIABLES =====*/
     const dark_mode_stlyes = {
-        body: "dark-bg-img",
-        header: "dark-header",
-        card: "dark-card",
-        restBtn: "dark-reset-btn",
-        dModeBtn: "true"
-    } 
+        body: "dark-mode"   
+     } 
 
 /*===== EVENT LISTENERS =====*/
 // event listner for form submission
@@ -48,7 +39,8 @@ function submitPhrase(e){
     // turns of form default submit behaviour
     e.preventDefault();
     // saves the users input to the phrase variable
-    let phrase = phrase_input.value;
+    let phrase = document.getElementById("phrase-input").value;
+    const result_display = document.querySelector(".result");
 
     if(phrase){
 
@@ -75,17 +67,15 @@ function getVowels(text){
     let text_arry = text.split("");
     // intializes a counter variable
     let counter = 0;
-    /* loop over the created array using the filter method to check againts the
+    const vowels = ["a","e","i","o","u"];
+    /* loop over the created array using the forEach method to check againts the
      text implemented if the array element passes the test the counter is 
      incremented by one*/ 
-        text_arry.filter(item=>{
-            if(item === "a" || item === "e" || item === "i" || item === "o" ||  item === "u"){
+        text_arry.forEach(char =>{
+            if(vowels.includes(char.toLowerCase())){
             //   case for lowercase letter 
                 counter ++
-            }else if(item === "a".toUpperCase() || item === "e".toUpperCase() || item === "e".toUpperCase() || item === "o".toUpperCase() ||  item === "u".toUpperCase()){
-                // case for upperrcase letter
-                    counter ++
-                }
+            }
     })
     // return the value of the counter variable
         return counter
@@ -95,6 +85,7 @@ function getVowels(text){
 // SHOW RESULT FUNC
 // this function shows the results of the vowel counting
  function showResults(){
+    const result_container = document.querySelector(".result-container");
     /* displays the results by adding a class that changes the elements
       visibility to visible*/
     result_container.classList.add("show");
@@ -102,7 +93,7 @@ function getVowels(text){
       visibility to visible, but only after 5 seconds*/
     setTimeout(()=>{
         reset_btn.classList.add("show");
-    },3000)
+    },1000)
 
  }
 
@@ -150,17 +141,16 @@ function showErrorMsg(color,text){
    by adding or removing specific classes from elements like the body, header, card,
     and reset button.*/
 function toggleDarkMode(stylesObj){
-    
+    const body = document.querySelector("body");
+    let isChecked = false;
     // selects DOM elements and toggles the dark mode classes on them based on user interaction with toggle btn
     body.classList.toggle(`${stylesObj.body}`);
-    header.classList.toggle(`${stylesObj.header}`);
-    card.classList.toggle(`${stylesObj.card}`);
     reset_btn.classList.toggle(`${stylesObj.restBtn}`);
     
     /* This code snippet is toggling the `checked` attribute of the `dark_mode_btn` based on the value of
     `stylesObj.dModeBtn`. */
-    if(!dark_mode_btn.checked){
-        dark_mode_btn.setAttribute("checked",`${stylesObj.dModeBtn}`);
+    if(!isChecked){
+        dark_mode_btn.setAttribute("checked","true");
     }else{
         dark_mode_btn.removeAttribute("checked");
     }
@@ -177,12 +167,16 @@ function toggleDarkMode(stylesObj){
     }else{
         localStorage.removeItem("styles")
     }
+
+
+
 }
 
 
-// DELAY PAGE LOAD FUN
+    // DELAY PAGE LOAD FUN
 // delays the page load by 1 second
 function delayPageLoad(){
+    const body = document.querySelector("body");
     setTimeout(()=>{
         body.classList.add("show-body");
     },1000)
